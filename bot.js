@@ -14,4 +14,13 @@ var channel = "492852383089426433";
     },305);
 })
 
+client.on('message',function(message) {
+    let prefix = "!";
+let args = message.content.split(" ").slice(1).join(" ");
+if(message.content.startsWith(prefix + "say")) {
+if(!args) return;
+message.channel.send(`${args}`); 
+}
+});
+
 client.login(process.env.BOT_TOKEN); 
