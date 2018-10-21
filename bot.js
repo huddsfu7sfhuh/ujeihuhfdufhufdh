@@ -21,7 +21,7 @@ if(message.content.startsWith(prefix + "say")) {
   if (message.author.id !== '321463690815602689') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
   if(!message.author.id === '321463690815602689') return;
 if(!args) return;
-message.channel.send(`**${args}**`);
+message.channel.send(`${args}`);
 }
 });
 
