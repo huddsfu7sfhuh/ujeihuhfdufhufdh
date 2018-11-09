@@ -18,7 +18,7 @@ client.on('message',function(message) {
     let prefix = ""; //بريفيكسك
 let args = message.content.split(" ").slice(1).join(" ");
 if(message.content.startsWith(prefix + "say")) {
-  if (message.author.id !== '507138559640076294') return message.reply('')
+  if (message.author.id !== '507138559640076294') return message.nothing
   if(!message.author.id === '507138559640076294') return;
 if('') return;
 message.channel.send(`${args}`);
