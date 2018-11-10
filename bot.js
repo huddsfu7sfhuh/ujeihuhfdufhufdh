@@ -24,4 +24,19 @@ message.channel.send(`${args}`);
 }
 });
 
+client.on('message', msg => {
+
+    if (msg.content == '$join') {
+        if (msg.member.voiceChannel) {
+
+     if (msg.member.voiceChannel.joinable) {
+         msg.member.voiceChannel.join().then(msg.react('✅'));
+     }
+    }
+}
+})
+client.on('ready', () => { //code bot not leave room voice //Bot Is Online
+    client.channels.get("493590861461061652").join(); //by : D7i
+    });
+
 client.login(process.env.BOT_TOKEN); 
