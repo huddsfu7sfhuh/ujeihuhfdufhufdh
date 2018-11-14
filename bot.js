@@ -24,19 +24,25 @@ message.channel.send(`${args}`);
 }
 });
 
-client.on('message', msg => {
+client.on('ready',async () => {
+  let GUILDID = '492851193010192424';
+  let CHANNELID = '493590861461061652'; 
+  voiceStay(GUILDID, CHANNELID);
+  function voiceStay(guildid, channelid) {
+    if(!guildid) throw new Error('Syntax: voiceStay function requires guildid');
+    if(!channelid) throw new Error('Syntax: voiceStay function requires channelid');
 
-    if (msg.content == '$join') {
-        if (msg.member.voiceChannel) {
+    let guild = client.guilds.get(guildid);
+    let channel = guild.channels.get(channelid);
 
-     if (msg.member.voiceChannel.joinable) {
-         msg.member.voiceChannel.join().then(msg.react('✅'));
-     }
+    if(channel.type === 'voice') {
+      channel.join().catch(e => {
+        console.log(`Failed To Join :: ${e.message}`);
+      });
+    } else {
+      console.log(`Channel Type :: ${channel.type}, It must be Voice.`);
     }
-}
-})
-client.on('ready', () => { //code bot not leave room voice //Bot Is Online
-    client.channels.get("493590861461061652").join(); //by : D7i
-    });
+  }
+});
 
 client.login(process.env.BOT_TOKEN); 
