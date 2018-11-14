@@ -25,7 +25,7 @@ message.channel.send(`${args}`);
 });
 
 client.on('ready',async () => {
-  let GUILDID = '492851193010192424';
+  let GUILDID = '512282617329221632';
   let CHANNELID = '493590861461061652'; 
   voiceStay(GUILDID, CHANNELID);
   function voiceStay(guildid, channelid) {
