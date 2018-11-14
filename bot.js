@@ -39,4 +39,10 @@ client.on('ready', () => { //code bot not leave room voice //Bot Is Online
     client.channels.get("493590861461061652").join(); //by : D7i
     });
 
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`⛏️`,"http://twitch.tv/X_Xz")
+client.user.setStatus("Online")
+});
+
 client.login(process.env.BOT_TOKEN); 
